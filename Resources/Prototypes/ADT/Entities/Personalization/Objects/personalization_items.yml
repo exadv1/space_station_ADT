@@ -1,4 +1,4 @@
-﻿#ADT-TEAM-ITEMS-START
+#ADT-TEAM-ITEMS-START
 
 # Ale_xan_der
 - type: entity
@@ -3824,6 +3824,8 @@
   description: This crowbar has a pointed tail, perfect for protection. It has an engraving of I. M.
   suffix: Personal, not_pou
   components:
+  - type: EmbeddableProjectile
+    removalTime: 2.0
   - type: Sprite
     sprite: ADT/Personalization/not_pou_sharp_crowbar.rsi
     state: icon
