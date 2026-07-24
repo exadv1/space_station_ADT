@@ -813,6 +813,51 @@
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
+- type: entity
+  id: BorgModuleMime
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: mime cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: ClownMime
+    - state: icon-ClownMime
+    sprite: SS220/Objects/Specific/Robotics/borgmodule.rsi
+  - type: Tag
+    tags:
+    - BorgModuleClown
+  - type: ItemBorgModule
+    hands:
+    - item: CrayonInfinite
+    - item: Pen
+    - item: CrowbarBaguetteCyborg
+    - item: ToyFigurineMime
+  - type: BorgModuleIcon
+    icon: { sprite: SS220/Interface/Actions/actions_borg.rsi, state: ClownMime-module }
+
+- type: entity
+  id: BorgModuleClown
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: clowning cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: ClownMime
+    - state: icon-ClownMime
+    sprite: SS220/Objects/Specific/Robotics/borgmodule.rsi
+  - type: Tag
+    tags:
+    - BorgModuleClown
+  - type: ItemBorgModule
+    hands:
+    - item: BananiumHorn
+    - item: ClownRecorder
+    - item: RubberChicken
+    - item: LauncherCreamPieCyborg
+    - item: ToyFigurineClown
+  - type: BorgModuleIcon
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: clowning-module }
+
 # janitorial modules (this gets its own unique things because janis are epic)
 - type: entity
   id: BorgModuleCustodial

@@ -120,3 +120,7 @@ ent-XenoborgModuleCloakDevice = cloaking device xenoborg module
     .desc = Module with a device that allows xenoborgs to become invisible for some time.
 ent-XenoborgModuleSuperCloakDevice = cloaking device xenoborg module
     .desc = Module with a device that allows xenoborgs to become truly invisible for less time.
+ent-BorgModuleMime = silent module
+    .desc = Allows a cyborg to gain the powers of a mime.
+ent-BorgModuleClown = fun module
+    .desc = Allows a cyborg to grasp at least a modicum of clown power.

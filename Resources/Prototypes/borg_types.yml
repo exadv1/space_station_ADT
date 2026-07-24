@@ -235,3 +235,38 @@
   # Pet
   petSuccessString: petting-success-service-cyborg
   petFailureString: petting-failure-service-cyborg
+
+
+  # ClownMime Borg
+- type: borgType
+  id: clowmime
+
+  # Description
+  dummyPrototype: BorgChassisClownMime
+
+  # Functional
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleMime
+    - BorgModuleClown
+
+  defaultModules:
+#  - BorgModulePrying
+  - BorgModuleMime
+  - BorgModuleClown
+
+  radioChannels:
+  - Service
+  - Science
+
+  # Visual
+  inventoryTemplateId: borgShort
+  spriteBodyState: engineer
+  spriteHasMindState: engineer_e
+  spriteNoMindState: engineer_e_r
+  spriteToggleLightState: engineer_l
+
+  # Pet
+  petSuccessString: petting-success-service-cyborg
+  petFailureString: petting-failure-service-cyborg
