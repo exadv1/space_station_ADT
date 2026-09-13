@@ -10,11 +10,28 @@ adt-gps-window-signals = Сигналы
 adt-gps-window-no-signals = Сигналов не обнаружено.
 adt-gps-window-disabled = Устройство выключено.
 adt-gps-window-emped = ОШИБКА: сигнал временно потерян.
+adt-gps-window-nullspace = ОШИБКА: нет привязки к сектору.
+adt-gps-window-sos-on = SOS: ПЕРЕДАЁТСЯ
+adt-gps-window-sos-off = SOS: молчит
+adt-gps-window-sos-cooldown = SOS: { $seconds } с
+
+adt-gps-window-waypoints = Метки:
+adt-gps-window-waypoint-add = Отметить здесь
+adt-gps-window-waypoint-remove = X
+adt-gps-window-no-waypoints = Меток не поставлено.
+
+adt-gps-waypoint-default-name = МЕТКА { $index }
+
+adt-gps-popup-waypoint-added = Точка сохранена как [color=yellow]{ $name }[/color].
+adt-gps-popup-waypoint-full = Память забита, больше { $count } меток прибор не держит.
+adt-gps-popup-waypoint-offline = Прибор не знает, где находится.
 
 adt-gps-signal-position = ({ $x }, { $y })
 adt-gps-signal-distance = { $distance } м
 adt-gps-signal-unknown = ???
 adt-gps-signal-off-map = вне сектора
+adt-gps-signal-sos-tag = [SOS] { $tag }
+adt-gps-signal-sos-desc = Аварийный маяк. Шахтёру нужна помощь!
 
 adt-gps-verb-enable = Включить GPS
 adt-gps-verb-disable = Выключить GPS
@@ -22,10 +39,14 @@ adt-gps-verb-disable = Выключить GPS
 adt-gps-examine-tag = Метка устройства - [color=yellow]{ $tag }[/color].
 adt-gps-examine-tracking = Индикатор мерцает: устройство передаёт свои координаты.
 adt-gps-examine-idle = Индикатор погашен.
+adt-gps-examine-sos = Красный индикатор бьётся в такт: [color=red]передаётся сигнал бедствия[/color].
 
 adt-gps-popup-broken = Он сломан!
 adt-gps-popup-enabled = Устройство передаёт координаты и видно другим GPS.
 adt-gps-popup-disabled = Устройство больше не передаёт координаты.
+adt-gps-popup-sos-enabled = Сигнал бедствия пошёл в эфир.
+adt-gps-popup-sos-disabled = Сигнал бедствия отключён.
+adt-gps-popup-sos-cooldown = Передатчик остывает, ещё { $seconds } с.
 
 # Метки сигналов
 adt-gps-signal-beacon = Маяк

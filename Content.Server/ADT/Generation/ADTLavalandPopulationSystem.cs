@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server.ADT.Procedural;
 using Content.Server.Parallax;
 using Content.Server.Procedural;
 using Content.Shared.Parallax.Biomes;
@@ -151,7 +152,7 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
             if (_placed.Any(other => Vector2.DistanceSquared(spot, other) < spacingSq))
                 continue;
 
-            if (group.AvoidRooms && IsNearRoom(ent, spot, group.RoomClearance))
+            if (group.AvoidRooms && IsNearRoom(ent, spot, group.RoomClearance, group.RoomMargin))
                 continue;
 
             return true;
@@ -161,7 +162,7 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
         return false;
     }
 
-    private bool IsNearRoom(Entity<ADTLavalandPopulationComponent> ent, Vector2 spot, float clearance)
+    private bool IsNearRoom(Entity<ADTLavalandPopulationComponent> ent, Vector2 spot, float clearance, float margin)
     {
         var clearanceSq = clearance * clearance;
 
@@ -171,9 +172,16 @@ public sealed class ADTLavalandPopulationSystem : EntitySystem
             return true;
         }
 
+        if (TryComp<ADTOccupiedRoomsComponent>(ent, out var occupied) &&
+            occupied.Rooms.Any(room => room.Enlarged(margin).Contains(spot)))
+        {
+            return true;
+        }
+
         var coords = new EntityCoordinates(ent.Owner, new Vector2(spot.X + 0.5f, spot.Y + 0.5f));
 
-        return _lookup.GetEntitiesInRange(coords, clearance).Any(e => HasComp<RoomFillComponent>(e));
+        return _lookup.GetEntitiesInRange(coords, clearance)
+            .Any(e => HasComp<RoomFillComponent>(e) || HasComp<ADTRoomFillComponent>(e));
     }
 
     private bool IsClearGround(Entity<BiomeComponent, MapGridComponent> map, Vector2i indices)

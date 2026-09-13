@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.ADT.Generation;
+using Content.Server.ADT.Procedural;
 using Content.Server.Procedural;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -110,6 +111,13 @@ public sealed class ADTMegafaunaSpawnSystem : EntitySystem
             return false;
         }
 
-        return !_lookup.GetEntitiesInRange(coords, comp.RoomClearance).Any(e => HasComp<RoomFillComponent>(e));
+        if (TryComp<ADTOccupiedRoomsComponent>(ent, out var occupied) &&
+            occupied.Rooms.Any(room => room.Enlarged(comp.RoomMargin).Contains(coords.Position)))
+        {
+            return false;
+        }
+
+        return !_lookup.GetEntitiesInRange(coords, comp.RoomClearance)
+            .Any(e => HasComp<RoomFillComponent>(e) || HasComp<ADTRoomFillComponent>(e));
     }
 }
